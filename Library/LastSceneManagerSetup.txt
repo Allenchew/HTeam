@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/main.unity
+- path: Assets/Koide/PlayerTestScene.unity
   isLoaded: 1
   isActive: 1
