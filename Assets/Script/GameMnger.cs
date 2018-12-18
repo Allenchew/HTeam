@@ -15,7 +15,7 @@ public class GameMnger : MonoBehaviour {
         }
     }
 
-    public static GameMnger MngerIns;
+    public static GameMnger MngerIns = null;
     public int PhaseTime = 60;
     public int IntervalTime = 10;
     public bool OnPause = false;
@@ -26,11 +26,12 @@ public class GameMnger : MonoBehaviour {
         if(MngerIns == null)
         {
             MngerIns = this;
-            DontDestroyOnLoad(gameObject);
+            
         }else if(MngerIns !=this)
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
 	void Start () {
         
