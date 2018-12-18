@@ -18,6 +18,8 @@ public class GameMnger : MonoBehaviour {
     public static GameMnger MngerIns = null;
     public int PhaseTime = 60;
     public int IntervalTime = 10;
+    public int PlayLife = 5;
+    public int EnemyToSpawn = 10;
     public bool OnPause = false;
 
     private TimeState GameState = new TimeState(true,true);
@@ -35,13 +37,13 @@ public class GameMnger : MonoBehaviour {
     }
 	void Start () {
         
-        StartCoroutine(i_timer(PhaseTime));
+        StartCoroutine(I_timer(PhaseTime));
         GameState.PhaseEnd = false;
 	}
     void Update () {
 		
 	}
-    IEnumerator i_timer(int InputTime)
+    IEnumerator I_timer(int InputTime)
     {
         for(int i = InputTime; i > 0; i--)
         {
@@ -55,13 +57,14 @@ public class GameMnger : MonoBehaviour {
         {
             GameState.PhaseEnd = true;
             GameState.IntervelEnd = false;
-            StartCoroutine(i_timer(IntervalTime));
+            StartCoroutine(I_timer(IntervalTime));
         }
         else if (!GameState.IntervelEnd)
         {
             GameState.PhaseEnd = false;
             GameState.IntervelEnd = true;
-            StartCoroutine(i_timer(PhaseTime));
+            StartCoroutine(I_timer(PhaseTime));
+            EnemyManager.EnemyIns.GetSpawnEnemy(60, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
     }
     void _gameOver()

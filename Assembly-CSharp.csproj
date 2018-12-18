@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\EnemyMnger.cs" />
      <Compile Include="Assets\Script\GameMnger.cs" />
      <Compile Include="Assets\Script\SoundMnger.cs" />
+     <Compile Include="Assets\Script\Title.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
