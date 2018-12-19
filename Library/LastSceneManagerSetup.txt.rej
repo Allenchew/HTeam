@@ -1,0 +1,6 @@
+diff a/Library/LastSceneManagerSetup.txt b/Library/LastSceneManagerSetup.txt	(rejected hunks)
+@@ -1,4 +0,0 @@
+-sceneSetups:
+-- path: Assets/Scene/main.unity
+-  isLoaded: 1
+-  isActive: 1
