@@ -45,7 +45,14 @@ public class GameMnger : MonoBehaviour {
         GameState.PhaseEnd = false;
 	}
     void Update () {
+<<<<<<< HEAD
         
+=======
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            
+        }
+>>>>>>> origin/matsuda
 	}
     IEnumerator I_timer(int InputTime)
     {
