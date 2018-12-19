@@ -236,13 +236,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 863579974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34a90ba1a2ca99428ac49541a1e9b37, type: 3}
+  m_Script: {fileID: 11500000, guid: a9ee34f7bc49aca4c9c6892cae5471a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textAsset: {fileID: 4900000, guid: a483bc55352600344a3d891f7bdfd12c, type: 3}
   polygon: 6
   distance: 1
-  wall: {fileID: 1923317155918516, guid: 10e16cd796ab9f345822683735612691, type: 2}
   stageDate: 
 --- !u!1 &1169460966
 GameObject:

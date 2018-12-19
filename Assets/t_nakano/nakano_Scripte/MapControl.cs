@@ -5,13 +5,11 @@ using System.Collections;
 
 public class MapControl : MonoBehaviour {
 
-	public TextAsset textAsset;
-
 	public float polygon=6; //角の数
 
 	public float distance = 0.5f; //壁を立てる距離
 
-	public GameObject wall;
+	//public GameObject wall;
 
 	public List<int> stageDate = new List<int>();
 
@@ -33,12 +31,20 @@ public class MapControl : MonoBehaviour {
 
 	void CreateStage(){
 
-		string stageTextData = textAsset.text;
+		string stageData = "stageData/stageNo_" + (1).ToString ();
+
+		TextAsset textAsset = Resources.Load (stageData) as TextAsset;
+
+		string mapData = textAsset.text;
+		Debug.Log (mapData);
+		GameObject wall = (GameObject)Resources.Load ("Model/Wall");
+
+		Debug.Log (wall);
 
 		int i = 0;
 		int j = 1;
 
-		foreach(char c in stageTextData){
+		foreach(char c in mapData){
 
 			//GameObject obj = null;
 
