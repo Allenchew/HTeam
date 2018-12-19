@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
-public class MapControl : MonoBehaviour {
+<<<<<<< HEAD
+=======
+public class MapControl : MonoBehaviour{
+    public static MapControl Mapmnger;
+	public TextAsset textAsset;
 
+>>>>>>> master
 	public float polygon=6; //角の数
 
 	public float distance = 0.5f; //壁を立てる距離
@@ -16,13 +20,20 @@ public class MapControl : MonoBehaviour {
 	public enum STAGE_KIND{
 		none,brake
 	};
+    
+    public void GetCreateMap()
+    {
+        CreateStage();
+    }
 
-	// Use this for initialization
-	void Start () {
-
-		CreateStage ();
-
-	}
+  void Awake()
+    {
+        Mapmnger = this;
+    }
+    // Use this for initialization
+    void Start () {
+        //CreateStage();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +42,7 @@ public class MapControl : MonoBehaviour {
 
 	void CreateStage(){
 
+<<<<<<< HEAD
 		string stageData = "stageData/stageNo_" + (1).ToString ();
 
 		TextAsset textAsset = Resources.Load (stageData) as TextAsset;
@@ -40,6 +52,9 @@ public class MapControl : MonoBehaviour {
 		GameObject wall = (GameObject)Resources.Load ("Model/Wall");
 
 		Debug.Log (wall);
+=======
+		string stageTextData =textAsset.text;
+>>>>>>> master
 
 		int i = 0;
 		int j = 1;
