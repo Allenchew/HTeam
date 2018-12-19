@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
-public class MapControl : MonoBehaviour {
-
+public class MapControl : MonoBehaviour{
+    public static MapControl Mapmnger;
 	public TextAsset textAsset;
 
 	public float polygon=6; //角の数
@@ -18,13 +17,20 @@ public class MapControl : MonoBehaviour {
 	public enum STAGE_KIND{
 		none,brake
 	};
+    
+    public void GetCreateMap()
+    {
+        CreateStage();
+    }
 
-	// Use this for initialization
-	void Start () {
-
-		CreateStage ();
-
-	}
+  void Awake()
+    {
+        Mapmnger = this;
+    }
+    // Use this for initialization
+    void Start () {
+        //CreateStage();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -33,7 +39,7 @@ public class MapControl : MonoBehaviour {
 
 	void CreateStage(){
 
-		string stageTextData = textAsset.text;
+		string stageTextData =textAsset.text;
 
 		int i = 0;
 		int j = 1;

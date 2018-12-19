@@ -22,6 +22,7 @@ public class GameMnger : MonoBehaviour {
     public int EnemyToSpawn = 10;
     public bool OnPause = false;
 
+    
     private TimeState GameState = new TimeState(true,true);
     void Awake()
     {
@@ -41,7 +42,10 @@ public class GameMnger : MonoBehaviour {
         GameState.PhaseEnd = false;
 	}
     void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            MapControl.Mapmnger.GetCreateMap();
+        }
 	}
     IEnumerator I_timer(int InputTime)
     {
@@ -64,7 +68,7 @@ public class GameMnger : MonoBehaviour {
             GameState.PhaseEnd = false;
             GameState.IntervelEnd = true;
             StartCoroutine(I_timer(PhaseTime));
-            EnemyManager.EnemyIns.GetSpawnEnemy(60, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+           // EnemyManager.EnemyIns.GetSpawnEnemy(60, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
     }
     void _gameOver()
