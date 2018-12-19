@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\GameMnger.cs" />
      <Compile Include="Assets\Script\SoundMnger.cs" />
      <Compile Include="Assets\Script\Title.cs" />
+     <Compile Include="Assets\Script\UIProcess.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
