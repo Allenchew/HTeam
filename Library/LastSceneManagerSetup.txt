@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Matsuda/Type2/Scenes/EnemyMove.unity
+  isLoaded: 1
+  isActive: 1
