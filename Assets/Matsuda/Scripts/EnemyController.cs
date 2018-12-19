@@ -156,7 +156,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //向きを変える
-        transform.Rotate(new Vector3(0, 90, 0));
+        transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y +90, 0));
 
         float a = (_hitWall.transform.localScale.x / 2 
             + (_rayLength * Mathf.Tan(Mathf.PI / 6)) + 0.4f) 
@@ -181,7 +181,7 @@ public class EnemyController : MonoBehaviour
             }
 
             //向きを変える
-            transform.Rotate(new Vector3(0, -60, 0));
+            transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y -60, 0));
 
             _timeCount = 0;
 
@@ -215,6 +215,7 @@ public class EnemyController : MonoBehaviour
 
             //Towerのタグ
             case "Tower":
+                Destroy(gameObject);
 
                 //
                 //攻撃のアニメーション
