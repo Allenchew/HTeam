@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scene/main.unity
-=======
-- path: Assets/Matsuda/Type2/Scenes/EnemyMove.unity
->>>>>>> origin/matsuda
   isLoaded: 1
   isActive: 1

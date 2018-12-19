@@ -2,24 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-public class MapControl{
-  
-=======
 
 public class MapControl{
 
->>>>>>> origin/matsuda
 
 	public float polygon=6; //角の数
 
 	 //壁を立てる距離
 
-<<<<<<< HEAD
-	
-=======
-	//public GameObject wall;
->>>>>>> origin/matsuda
+
 
 	public List<int> stageDate = new List<int>();
 
@@ -31,12 +22,7 @@ public class MapControl{
     {
         CreateStage(wall);
     }
-<<<<<<< HEAD
-=======
 
-
-    // Use this for initialization
->>>>>>> origin/matsuda
     void Start () {
         //CreateStage();
     }
@@ -45,8 +31,7 @@ public class MapControl{
 	void Update () {
 
 	}
-
-<<<<<<< HEAD
+    
 	void CreateStage(GameObject wall, int stageno = 1){
         
 		int i = 0;
@@ -55,25 +40,7 @@ public class MapControl{
         string stageTextData = "csv/stage_" + (stageno).ToString();
         TextAsset textAsset = Resources.Load(stageTextData) as TextAsset;
         foreach (char c in textAsset.text){
-=======
-	void CreateStage(){
-        
-		string stageData = "stageData/stageNo_" + (1).ToString ();
-
-		TextAsset textAsset = Resources.Load (stageData) as TextAsset;
-
-		string mapData = textAsset.text;
-		Debug.Log (mapData);
-		GameObject wall = (GameObject)Resources.Load ("Model/Wall");
-
-		Debug.Log (wall);
-
-
-		int i = 0;
-		int j = 1;
-
-		foreach(char c in mapData){
->>>>>>> origin/matsuda
+	
 
 			//GameObject obj = null;
 

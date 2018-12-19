@@ -41,18 +41,11 @@ public class GameMnger : MonoBehaviour {
 	void Start () {
         GetMap.GetCreateMap(Wall);
         StartCoroutine(I_timer(PhaseTime));
-        EnemyMnger.EnemyIns.GetSpawnEnemy(1);
+        EnemyMnger.EnemyIns.GetSpawnEnemy(EnemyToSpawn);
         GameState.PhaseEnd = false;
 	}
     void Update () {
-<<<<<<< HEAD
-        
-=======
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            
-        }
->>>>>>> origin/matsuda
+
 	}
     IEnumerator I_timer(int InputTime)
     {
@@ -75,7 +68,7 @@ public class GameMnger : MonoBehaviour {
             GameState.PhaseEnd = false;
             GameState.IntervelEnd = true;
             StartCoroutine(I_timer(PhaseTime));
-            EnemyMnger.EnemyIns.GetSpawnEnemy(1);
+            EnemyMnger.EnemyIns.GetSpawnEnemy(EnemyToSpawn);
             // EnemyManager.EnemyIns.GetSpawnEnemy(60, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
     }
