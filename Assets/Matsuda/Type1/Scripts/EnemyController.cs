@@ -49,7 +49,8 @@ public class EnemyController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
 
-        _towerPos = _tower.transform.position;//Towerのポジション取得
+        //Towerのポジション取得
+        _towerPos = _tower.transform.position;
 
         //Towerの方向に向く
         transform.LookAt(_towerPos);
@@ -61,9 +62,9 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(!_move)
+        if (!_move)
         {
-        StartCoroutine(EnemyMove());
+            StartCoroutine(EnemyMove());
         }
     }
 
@@ -156,17 +157,17 @@ public class EnemyController : MonoBehaviour
         }
 
         //向きを変える
-        transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y +90, 0));
+        transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y + 90, 0));
 
-        float a = (_hitWall.transform.localScale.x / 2 
-            + (_rayLength * Mathf.Tan(Mathf.PI / 6)) + 0.4f) 
+        float a = (_hitWall.transform.localScale.x / 2
+            + (_rayLength * Mathf.Tan(Mathf.PI / 6)) + 0.4f)
             / _enemySpeed;
 
         Debug.Log(_rayLength * Mathf.Tan(Mathf.PI / 6));
         _delayTime = a;
 
         WallCheck();
-        
+
 
         while (_wallL)
         {
@@ -176,12 +177,12 @@ public class EnemyController : MonoBehaviour
             {
                 _timeCount += Time.deltaTime;
                 _rb.MovePosition(Vector3.Lerp(transform.position, transform.position + transform.forward, Time.deltaTime * _enemySpeed));
-                
+
                 yield return null;
             }
 
             //向きを変える
-            transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y -60, 0));
+            transform.Rotate(new Vector3(0, _hitWall.gameObject.transform.rotation.y - 60, 0));
 
             _timeCount = 0;
 
@@ -203,24 +204,13 @@ public class EnemyController : MonoBehaviour
         _move = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        switch (collision.gameObject.tag)
+        switch (other.gameObject.tag)
         {
-
-            //Wallのタグ
-            case "_wall":
-                break;
-
-
-            //Towerのタグ
-            case "Tower":
-                Destroy(gameObject);
-
-                //
-                //攻撃のアニメーション
-                //
-
+            //WallCenterのタグ
+            case "WallCenter":
+                Debug.Log(other.gameObject.tag);
                 break;
 
             default:
