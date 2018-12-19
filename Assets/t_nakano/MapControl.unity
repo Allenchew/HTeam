@@ -241,9 +241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textAsset: {fileID: 4900000, guid: a483bc55352600344a3d891f7bdfd12c, type: 3}
   polygon: 6
-  distance: 5
+  distance: 1
   wall: {fileID: 1923317155918516, guid: 10e16cd796ab9f345822683735612691, type: 2}
-  wallCreate: 
+  stageDate: 
 --- !u!1 &1169460966
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,28 +46,28 @@ public class MapControl : MonoBehaviour {
 
 			if(c == 'w'){
 				stageDate.Add (1);
-				int n = i / j;
+				int corner = i / j;
 
 				float _angle = 360.0f / polygon;
 
 				float _rad = _angle*Mathf.Deg2Rad;
+				float wallSizeZ = wall.transform.localScale.z * distance;
 
-				//Debug.Log (angle);
+				float x = Mathf.Cos (_rad * corner) * wallSizeZ * j;
+				float z = Mathf.Sin (_rad * corner) * wallSizeZ * j;
 
-				float x = Mathf.Cos (_rad * n) * distance * j;
-				float z = Mathf.Sin (_rad * n) * distance * j;
+				float corAngle = corner * _angle;
 
-				float i_angle = n * _angle;
+				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x, 0.0f, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
 
-				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x, 0.0f, z),Quaternion.Euler(new Vector3(0.0f,-i_angle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
+				float side = (j - 1) * -wallSizeZ / 2 + (i % j) * (wallSizeZ /*+ wallZ / 10*/);
 
-				float side = (j - 1) * 0.5f;
+				//loat side2 = i % j * 1.5f;
 
-				float side2 = i % j * 1.5f;
-
-				obj.transform.localPosition += new Vector3 (side2, 0.0f, 0.0f);
+				obj.transform.localPosition += obj.transform.forward * side;
 
 			}else if(c == '\n'){
+				i = 0;
 				j++;
 				Debug.Log (j);
 				continue;
@@ -78,7 +78,9 @@ public class MapControl : MonoBehaviour {
 			//Debug.Log (i);
 			//Debug.Log (j);
 		}
-		Debug.Log (stageDate);
+	}
 
+	List<int> GetMapChipData(){
+		return stageDate;
 	}
 }
