@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 
 
 public class MapControl{
     
+=======
+//<<<<<<< HEAD
+
+//public class MapControl{
+
+
+//=======
+public class MapControl : MonoBehaviour{
+    public static MapControl Mapmnger;
+
+//>>>>>>> origin/t_nakano
+>>>>>>> origin/t_nakano
 	public float polygon=6; //角の数
 
-	 //壁を立てる距離
+    private float distance = 1.5f; //壁を立てる距離
+
+    //壁を立てる距離
 
 
 
-	public List<int> stageDate = new List<int>();
+    public List<int> stageDate = new List<int>();
 
 	public enum STAGE_KIND{
 		none,brake
@@ -20,7 +35,7 @@ public class MapControl{
     
     public void GetCreateMap(GameObject wall)
     {
-        CreateStage(wall);
+       // CreateStage(wall);
     }
 
     void Start () {
@@ -31,6 +46,7 @@ public class MapControl{
 	void Update () {
 
 	}
+<<<<<<< HEAD
 
     
 	void CreateStage(GameObject wall, int stageno = 1){
@@ -42,50 +58,87 @@ public class MapControl{
         TextAsset textAsset = Resources.Load(stageTextData) as TextAsset;
         foreach (char c in textAsset.text){
 	
+=======
+    /*<<<<<<< HEAD
 
-			//GameObject obj = null;
+        void CreateStage(GameObject wall, int stageno = 1){
 
-			//Debug.Log (c);
+    =======*/
 
-			if(c == 'w'){
-				stageDate.Add (1);
-				int corner = i / j;
+    void CreateStage()
+    {
 
-				float _angle = 360.0f / polygon;
+        string stageData = "StageData/stageNo_" + (1).ToString();
 
-				float _rad = _angle*Mathf.Deg2Rad;
-				float wallSizeZ = wall.transform.localScale.z * distance;
-				float wallSizeY = wall.transform.localScale.y * distance / 3 * 2;
+        TextAsset textAsset = Resources.Load(stageData) as TextAsset;
 
-				float x = Mathf.Cos (_rad * corner) * wallSizeY * j;
-				float z = Mathf.Sin (_rad * corner) * wallSizeY * j;
+        string mapData = textAsset.text;
+>>>>>>> origin/t_nakano
 
+        GameObject wall = (GameObject)Resources.Load("Model/Wall");
+
+        Debug.Log(wall);
+
+        int i = 0;
+        int j = 1;
+
+        foreach (char c in mapData)
+        {
+
+            //GameObject obj = null;
+
+            //Debug.Log (c);
+
+<<<<<<< HEAD
 				float corAngle = corner * _angle;
                 
 				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x,wall.transform.localScale.y/2, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
 
+=======
+            if (c == 'w')
+            {
+                stageDate.Add(1);
+                int corner = i / j;
 
-				float side = (j - 1) * -wallSizeZ / 2 + (i % j) * (wallSizeZ + wallSizeZ / 15);
+                float _angle = 360.0f / polygon;
+>>>>>>> origin/t_nakano
 
-				//loat side2 = i % j * 1.5f;
+                float _rad = _angle * Mathf.Deg2Rad;
+                float wallSizeZ = wall.transform.localScale.z * distance;
+                float wallSizeY = wall.transform.localScale.y * distance / 3 * 2;
 
-				obj.transform.localPosition += obj.transform.forward * side;
+                float x = Mathf.Cos(_rad * corner) * wallSizeY * j;
+                float z = Mathf.Sin(_rad * corner) * wallSizeY * j;
 
-			}else if(c == '\n'){
-				i = 0;
-				j++;
-				Debug.Log (j);
-				continue;
-			}else if(c == ' '){
-				stageDate.Add (0);
-			}
-			i++;
-			//Debug.Log (i);
-			//Debug.Log (j);
-		}
-	}
+                float corAngle = corner * _angle;
 
-	List<int> GetMapChipData(){
+                GameObject obj = GameObject.Instantiate(wall, new Vector3(x, wall.transform.localScale.y/2, z), Quaternion.Euler(new Vector3(0.0f, -corAngle, 0.0f)));
+
+				float side = (j - 1) * -wallSizeZ / 2 + (i % j) * (wallSizeZ );
+
+                //loat side2 = i % j * 1.5f;
+
+                obj.transform.localPosition += obj.transform.forward * side;
+
+            }
+            else if (c == '\n')
+            {
+                i = 0;
+                j++;
+                Debug.Log(j);
+                continue;
+            }
+            else if (c == ' ')
+            {
+                stageDate.Add(0);
+            }
+            i++;
+            //Debug.Log (i);
+            //Debug.Log (j);
+        }
+    }
+
+    List<int> GetMapChipData(){
 		return stageDate;
 	}
 }
