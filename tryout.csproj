@@ -232,6 +232,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+    <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
     <Compile Include="Assets\Koide\KoideScript\CameraController.cs" />
     <Compile Include="Assets\Koide\KoideScript\PlayerController.cs" />
     <Compile Include="Assets\Koide\KoideScript\WallController.cs" />
