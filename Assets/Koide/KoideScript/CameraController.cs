@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     void Start ()
     {
         ///---初期化---///
-        baseBuild = GameObject.Find("BaseBuild");
+        baseBuild = GameObject.FindGameObjectWithTag("Tower");
         player = GameObject.Find("Player");
         
         playerPos = new Vector3(player.transform.position.x, 0.0f, player.transform.position.z);

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if(moveState == MoveState.Move)
         {
             velocity = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); //コントローラーの入力情報
-
+         
             //入力が最大の時
             if (velocity.magnitude >= 0.5f)
             {
@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
             {
                 index = 0;
             }
-
             charaCon.Move(move[index] * moveSpeed * Time.deltaTime);    //移動
             velocity.y += Physics.gravity.y * Time.deltaTime;           //下に重力を掛ける
 
