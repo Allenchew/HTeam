@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scene/main.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Scene/main.unity
-=======
 - path: Assets/t_nakano/MapControl.unity
->>>>>>> 014f59d14cb3d90f970d5f89138a9ff96ac8f7b2
->>>>>>> 92632745cbc594d87372b41c085a0ff216e73aa4
   isLoaded: 1
   isActive: 1
