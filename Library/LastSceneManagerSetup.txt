@@ -1,4 +1,8 @@
 sceneSetups:
-- path: Assets/Matsuda/Type2/Scenes/EnemyMove.unity
+<<<<<<< HEAD
+- path: Assets/Scene/main.unity
+=======
+- path: Assets/t_nakano/MapControl.unity
+>>>>>>> origin/t_nakano
   isLoaded: 1
   isActive: 1

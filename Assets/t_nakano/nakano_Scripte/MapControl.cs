@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 
 public class MapControl : MonoBehaviour{
 
 
+=======
+public class MapControl : MonoBehaviour{
+    public static MapControl Mapmnger;
+
+>>>>>>> origin/t_nakano
 	public float polygon=6; //角の数
 
-	public float distance = 0.5f; //壁を立てる距離
+	 //壁を立てる距離
 
-	//public GameObject wall;
+
 
 	public List<int> stageDate = new List<int>();
 
@@ -18,24 +24,27 @@ public class MapControl : MonoBehaviour{
 		none,brake
 	};
     
-    public void GetCreateMap()
+    public void GetCreateMap(GameObject wall)
     {
-        CreateStage();
+        CreateStage(wall);
     }
 
-
-    // Use this for initialization
     void Start () {
-        //CreateStage();
+        CreateStage();
     }
 
 	// Update is called once per frame
 	void Update () {
 
 	}
+<<<<<<< HEAD
+    
+	void CreateStage(GameObject wall, int stageno = 1){
+        
+=======
 
 	void CreateStage(){
-        
+
 		string stageData = "stageData/stageNo_" + (1).ToString ();
 
 		TextAsset textAsset = Resources.Load (stageData) as TextAsset;
@@ -46,11 +55,14 @@ public class MapControl : MonoBehaviour{
 
 		Debug.Log (wall);
 
-
+>>>>>>> origin/t_nakano
 		int i = 0;
 		int j = 1;
-
-		foreach(char c in mapData){
+        float distance = wall.transform.localScale.z;
+        string stageTextData = "csv/stage_" + (stageno).ToString();
+        TextAsset textAsset = Resources.Load(stageTextData) as TextAsset;
+        foreach (char c in textAsset.text){
+	
 
 			//GameObject obj = null;
 
@@ -64,15 +76,20 @@ public class MapControl : MonoBehaviour{
 
 				float _rad = _angle*Mathf.Deg2Rad;
 				float wallSizeZ = wall.transform.localScale.z * distance;
+				float wallSizeY = wall.transform.localScale.y * distance / 3 * 2;
 
-				float x = Mathf.Cos (_rad * corner) * wallSizeZ * j;
-				float z = Mathf.Sin (_rad * corner) * wallSizeZ * j;
+				float x = Mathf.Cos (_rad * corner) * wallSizeY * j;
+				float z = Mathf.Sin (_rad * corner) * wallSizeY * j;
 
 				float corAngle = corner * _angle;
 
-				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x, 0.0f, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
+<<<<<<< HEAD
+				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x,wall.transform.localScale.y/2, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
+=======
+				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x, wall.transform.localScale.y/2, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f)));
+>>>>>>> origin/t_nakano
 
-				float side = (j - 1) * -wallSizeZ / 2 + (i % j) * (wallSizeZ /*+ wallZ / 10*/);
+				float side = (j - 1) * -wallSizeZ / 2 + (i % j) * (wallSizeZ + wallSizeZ / 15);
 
 				//loat side2 = i % j * 1.5f;
 
