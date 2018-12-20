@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class UIProcess : MonoBehaviour {
     public Sprite[] HpUI;
     public GameObject HpBar;
+    public GameObject HpContain;
     public Image[] GameState;
     public Image Cover;
+    public Image TitlePic;
     // Use this for initialization
+    
     private int localLife = 0;
     private bool Showing = false;
+    private bool DoneInit = false;
 	void Start () {
         _createHpBar(GameMnger.MngerIns.PlayLife);
         localLife = GameMnger.MngerIns.PlayLife;
@@ -20,7 +24,7 @@ public class UIProcess : MonoBehaviour {
 	void Update () {
         if (localLife != GameMnger.MngerIns.PlayLife)
         {
-            if (transform.childCount< GameMnger.MngerIns.PlayLife)
+            if (HpContain.transform.childCount< GameMnger.MngerIns.PlayLife)
             {
                 _updateHp(0);
             }
@@ -30,17 +34,20 @@ public class UIProcess : MonoBehaviour {
             }
             else
             {
-                Debug.Log(GameMnger.MngerIns.PlayLife == 0 && !Showing);
                 if (GameMnger.MngerIns.PlayLife == 0 && !Showing)
                 {
                     Showing = true;
-                    StartCoroutine("ShowGameOver");
+                    ShowGameOver();
                 }
                 _updateHp(1);
             }
             localLife = GameMnger.MngerIns.PlayLife;
         }
-        
+        if(GameMnger.MngerIns.Started == true && !DoneInit)
+        {
+            DoneInit = true;
+            Init();
+        }
     }
     void fixedUpdate()
     {
@@ -51,27 +58,27 @@ public class UIProcess : MonoBehaviour {
         switch (index)
         {
             case 0:
-                if(GameMnger.MngerIns.PlayLife > transform.childCount)
+                if(GameMnger.MngerIns.PlayLife > HpContain.transform.childCount)
                 {
                     Debug.Log("ran");
-                    _createHpBar(GameMnger.MngerIns.PlayLife - transform.childCount);
+                    _createHpBar(GameMnger.MngerIns.PlayLife - HpContain.transform.childCount);
                 }
                 for (int i = 0; i < localLife; i++)
                 {
-                    transform.GetChild(i).GetComponent<Image>().sprite = HpUI[index];
+                    HpContain.transform.GetChild(i).GetComponent<Image>().sprite = HpUI[index];
                 }
                 break;
             case 1:
-                for(int i= GameMnger.MngerIns.PlayLife; i < transform.childCount; i++)
+                for(int i= GameMnger.MngerIns.PlayLife; i < HpContain.transform.childCount; i++)
                 {
-                    transform.GetChild(i).GetComponent<Image>().sprite = HpUI[index];
+                    HpContain.transform.GetChild(i).GetComponent<Image>().sprite = HpUI[index];
                 }
                 
                 break;
             case 2:
                 for(int i = localLife; i < GameMnger.MngerIns.PlayLife; i++)
                 {
-                    transform.GetChild(i).GetComponent<Image>().sprite = HpUI[0];
+                    HpContain.transform.GetChild(i).GetComponent<Image>().sprite = HpUI[0];
                 }
                 break;
          }
@@ -81,24 +88,33 @@ public class UIProcess : MonoBehaviour {
     {
         for (int i = 0; i < lifeCount; i++)
         {
-            var TempUi = GameObject.Instantiate(HpBar, transform);
-            TempUi.GetComponent<RectTransform>().localPosition = new Vector3(-(Screen.width / 2) + ((transform.childCount + 1) * 80), 420f);
+            var TempUi = GameObject.Instantiate(HpBar, HpContain.transform);
+            TempUi.GetComponent<RectTransform>().localPosition = new Vector3(-(Screen.width / 2) + ((HpContain.transform.childCount + 1) * 80), 420f);
 
         }
     }
-    IEnumerator ShowGameOver()
+    void ShowGameOver()
     {
-        Debug.Log("entered");
         GameState[0].gameObject.SetActive(true);
         Cover.gameObject.SetActive(true);
+        StartCoroutine(FadeInOut(Cover,Color.clear,Color.black));
+        StartCoroutine(FadeInOut(GameState[0], Color.clear, Color.white));
+        GameMnger.MngerIns.ShowGameOver = true;
+    }
+    IEnumerator FadeInOut(Image Target,Color Start,Color End)
+    {
         float temp = 0;
         for (int i = 0; i < 20; i++)
         {
             if (i == 19) temp = 19;
             else temp = (float)i / 19;
-            Cover.color = Color.Lerp(Color.clear, Color.black, temp);
-            GameState[0].color = Color.Lerp(Color.clear, Color.white, temp);
+            Target.color = Color.Lerp(Start, End, temp);
+            //GameState[0].color = Color.Lerp(Color.clear, Color.white, temp);
             yield return new WaitForSeconds(0.05f);
         }
+    }
+    void Init()
+    {
+        StartCoroutine(FadeInOut(TitlePic, Color.white, Color.clear));
     }
 }

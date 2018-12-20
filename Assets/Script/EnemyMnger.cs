@@ -14,14 +14,7 @@ public class EnemyMnger : MonoBehaviour {
 	
     private void Awake()
     {
-        if(EnemyIns == null)
-        {
-            EnemyIns = this;
-        }else if(EnemyIns != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+       EnemyIns = this;
     }
 
 	void Start () {

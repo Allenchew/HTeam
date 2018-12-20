@@ -63,8 +63,10 @@
      <Compile Include="Assets\Script\Title.cs" />
      <Compile Include="Assets\Script\UIProcess.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
-     <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
+     <Compile Include="Assets\t_nakano\nakano_Scripte\MapManagerControl.cs" />
+     <Compile Include="Assets\t_nakano\nakano_Scripte\MoveDestination.cs" />
+     <Compile Include="Assets\t_nakano\nakano_Scripte\NewBehaviourScript.cs" />
      <None Include="Assets\Koide\KoideShader\PlayerStencil.shader" />
      <None Include="Assets\Koide\KoideShader\WallStencil.shader" />
      <None Include="Assets\Resources\csv\stage_1.txt" />

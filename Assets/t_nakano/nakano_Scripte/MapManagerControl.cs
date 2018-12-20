@@ -6,8 +6,9 @@ public class MapManagerControl : MonoBehaviour {
 
 	public int corner = 6;
 	public float distance = 1.5f; //壁を立てる距離
+    public GameObject wall;
 
-	int childCount = 0;
+    int childCount = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -36,8 +37,7 @@ public class MapManagerControl : MonoBehaviour {
 		TextAsset textAsset = Resources.Load (stageData) as TextAsset;
 
 		string mapData = textAsset.text;
-
-		GameObject wall = (GameObject)Resources.Load ("Model/Wall");
+        
 
 		int i = 0;
 		int j = 1;

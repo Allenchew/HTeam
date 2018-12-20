@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMnger : MonoBehaviour {
     struct TimeState
@@ -20,32 +21,41 @@ public class GameMnger : MonoBehaviour {
     public int IntervalTime = 10;
     public int PlayLife = 5;
     public int EnemyToSpawn = 10;
+    public int PhaseCount = 3;
+    public bool ShowGameOver = false;
+    public bool GameClear = false;
     public bool OnPause = false;
+    public bool Started = false;
     public GameObject Wall;
-    
+    public GameObject MapManager;
 
-    private MapControl GetMap = new MapControl();
+    
     private TimeState GameState = new TimeState(true,true);
     void Awake()
     {
-        if(MngerIns == null)
-        {
-            MngerIns = this;
-            
-        }else if(MngerIns !=this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+        MngerIns = this;
     }
 	void Start () {
-        GetMap.GetCreateMap(Wall);
+        
+        MapManager.GetComponent<MapManagerControl>().CreateMap();
         StartCoroutine(I_timer(PhaseTime));
+        PhaseCount--;
         EnemyMnger.EnemyIns.GetSpawnEnemy(EnemyToSpawn);
         GameState.PhaseEnd = false;
 	}
     void Update () {
-
+        if (Input.anyKey)
+        {
+            Started = true;
+            if (ShowGameOver)
+            {
+                SceneManager.LoadScene("main");
+            }
+            if (GameClear) // zombie count
+            {
+                SceneManager.LoadScene("main");
+            }
+        }
 	}
     IEnumerator I_timer(int InputTime)
     {
@@ -53,7 +63,10 @@ public class GameMnger : MonoBehaviour {
         {
             yield return new WaitForSeconds(1.0f);
         }
-        _enterInterval();
+        if (PhaseCount > 0)
+            _enterInterval();
+        else
+            GameClear = true;
     }
     void _enterInterval()
     {
@@ -68,16 +81,8 @@ public class GameMnger : MonoBehaviour {
             GameState.PhaseEnd = false;
             GameState.IntervelEnd = true;
             StartCoroutine(I_timer(PhaseTime));
+            PhaseCount--;
             EnemyMnger.EnemyIns.GetSpawnEnemy(EnemyToSpawn);
-            
         }
-    }
-    void _gameOver()
-    {
-
-    }
-    void _gameClear()
-    {
-
     }
 }
