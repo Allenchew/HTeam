@@ -128,11 +128,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &53545104 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1946396981727152, guid: 695d792fdc81a9e4399b95e7d234529a,
@@ -148,11 +148,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &77817464
 Prefab:
   m_ObjectHideFlags: 0
@@ -194,8 +194,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
-      propertyPath: m_Radius
-      value: 0.5
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -215,11 +220,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &132874598 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1853365126819978, guid: d5f4941872715754c9616a1879601014,
@@ -235,11 +240,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &282854751 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1046394807902808, guid: 71e3b4677214dc049853e9f6377a2bbe,
@@ -255,11 +260,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &378211805
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,11 +372,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -391,11 +406,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &730903171 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1151242595981538, guid: 71e3b4677214dc049853e9f6377a2bbe,
@@ -411,11 +426,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &865345522 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1240775055042378, guid: 695d792fdc81a9e4399b95e7d234529a,
@@ -431,11 +446,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &897260810
 Prefab:
   m_ObjectHideFlags: 0
@@ -478,6 +493,18 @@ Prefab:
     - target: {fileID: 1572277275070306, guid: 83e15a282a9db5f41bf64f122d8eeba2, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632420233938302, guid: 83e15a282a9db5f41bf64f122d8eeba2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632420233938302, guid: 83e15a282a9db5f41bf64f122d8eeba2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632420233938302, guid: 83e15a282a9db5f41bf64f122d8eeba2, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83e15a282a9db5f41bf64f122d8eeba2, type: 2}
@@ -524,11 +551,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -622,11 +659,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &1143881065 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1815513887282394, guid: d5f4941872715754c9616a1879601014,
@@ -642,11 +679,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &1279900832
 Prefab:
   m_ObjectHideFlags: 0
@@ -689,11 +726,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -782,11 +829,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -887,11 +944,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &1455168664
 Prefab:
   m_ObjectHideFlags: 0
@@ -934,11 +991,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -985,11 +1052,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -1009,11 +1086,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &1526616445 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1321792604927388, guid: 71e3b4677214dc049853e9f6377a2bbe,
@@ -1029,11 +1106,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &1574106970 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1987367426992470, guid: 71e3b4677214dc049853e9f6377a2bbe,
@@ -1049,11 +1126,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &1706222910 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1701018976786660, guid: 695d792fdc81a9e4399b95e7d234529a,
@@ -1069,11 +1146,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1 &1825377768 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1840765639379548, guid: 71e3b4677214dc049853e9f6377a2bbe,
@@ -1089,11 +1166,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &1827076340
 Prefab:
   m_ObjectHideFlags: 0
@@ -1183,11 +1260,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &1942373836
 Prefab:
   m_ObjectHideFlags: 0
@@ -1277,11 +1354,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 2
+  m_MoveThreshold: 1
   m_Carve: 1
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &2027852882
 Prefab:
   m_ObjectHideFlags: 0
@@ -1324,11 +1401,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
@@ -1375,11 +1462,21 @@ Prefab:
     - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1420643895498890, guid: 38caddf472f9a154881dcff08507bf43, type: 2}
       propertyPath: m_Name
       value: Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195486127726532978, guid: 38caddf472f9a154881dcff08507bf43,
+        type: 2}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38caddf472f9a154881dcff08507bf43, type: 2}

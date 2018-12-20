@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 public class MapControl{
     
 =======
+=======
+>>>>>>> origin/matsuda
 //<<<<<<< HEAD
 
 //public class MapControl{
@@ -18,7 +21,10 @@ public class MapControl : MonoBehaviour{
     public static MapControl Mapmnger;
 
 //>>>>>>> origin/t_nakano
+<<<<<<< HEAD
 >>>>>>> origin/t_nakano
+=======
+>>>>>>> origin/matsuda
 	public float polygon=6; //角の数
 
     private float distance = 1.5f; //壁を立てる距離
@@ -39,13 +45,14 @@ public class MapControl : MonoBehaviour{
     }
 
     void Start () {
-     
+        CreateStage();
     }
 
 	// Update is called once per frame
 	void Update () {
 
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     
@@ -59,6 +66,8 @@ public class MapControl : MonoBehaviour{
         foreach (char c in textAsset.text){
 	
 =======
+=======
+>>>>>>> origin/matsuda
     /*<<<<<<< HEAD
 
         void CreateStage(GameObject wall, int stageno = 1){
@@ -73,7 +82,10 @@ public class MapControl : MonoBehaviour{
         TextAsset textAsset = Resources.Load(stageData) as TextAsset;
 
         string mapData = textAsset.text;
+<<<<<<< HEAD
 >>>>>>> origin/t_nakano
+=======
+>>>>>>> origin/matsuda
 
         GameObject wall = (GameObject)Resources.Load("Model/Wall");
 
@@ -90,18 +102,24 @@ public class MapControl : MonoBehaviour{
             //Debug.Log (c);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 				float corAngle = corner * _angle;
                 
 				GameObject obj = GameObject.Instantiate (wall, new Vector3 (x,wall.transform.localScale.y/2, z),Quaternion.Euler(new Vector3(0.0f,-corAngle,0.0f))/*new Quaternion(0.0f,2.0f,0.0f,1.0f)*/);
 
 =======
+=======
+>>>>>>> origin/matsuda
             if (c == 'w')
             {
                 stageDate.Add(1);
                 int corner = i / j;
 
                 float _angle = 360.0f / polygon;
+<<<<<<< HEAD
 >>>>>>> origin/t_nakano
+=======
+>>>>>>> origin/matsuda
 
                 float _rad = _angle * Mathf.Deg2Rad;
                 float wallSizeZ = wall.transform.localScale.z * distance;

@@ -1,8 +1,12 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scene/main.unity
 =======
 - path: Assets/t_nakano/MapControl.unity
 >>>>>>> origin/t_nakano
+=======
+- path: Assets/Koide/KoideScene/PlayerTestScene.unity
+>>>>>>> origin/matsuda
   isLoaded: 1
   isActive: 1

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45140892, g: 0.50055516, b: 0.57046044, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140964, g: 0.50055605, b: 0.5704613, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 648816235}
   m_Layer: 0
   m_Name: BaseBuild
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2112,7 +2112,7 @@ GameObject:
   - component: {fileID: 1485940960}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1485940960}
   moveSpeed: 8
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1434195735}
 --- !u!23 &1485940956
 MeshRenderer:
   m_ObjectHideFlags: 0
