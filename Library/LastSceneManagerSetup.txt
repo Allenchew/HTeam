@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/t_nakano/MapControl.unity
+- path: Assets/Koide/KoideScene/PlayerTestScene.unity
   isLoaded: 1
   isActive: 1
