@@ -241,6 +241,7 @@
     <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
+    <Compile Include="Assets\t_nakano\nakano_Scripte\MoveDestination.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\StageData\stageNo_1.txt" />
