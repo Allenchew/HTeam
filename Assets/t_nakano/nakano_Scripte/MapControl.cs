@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MapControl{
+public class MapControl : MonoBehaviour{
 
 
 	public float polygon=6; //角の数
