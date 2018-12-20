@@ -51,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Koide\KoideScript\CameraController.cs" />
+     <Compile Include="Assets\Koide\KoideScript\PlayerController.cs" />
+     <Compile Include="Assets\Koide\KoideScript\WallController.cs" />
      <Compile Include="Assets\Matsuda\Type1\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Matsuda\Type1\Scripts\Exit.cs" />
      <Compile Include="Assets\Matsuda\Type2\Scripts\ObjectController.cs" />
@@ -58,9 +61,12 @@
      <Compile Include="Assets\Script\GameMnger.cs" />
      <Compile Include="Assets\Script\SoundMnger.cs" />
      <Compile Include="Assets\Script\Title.cs" />
+     <Compile Include="Assets\Script\UIProcess.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
+     <None Include="Assets\Koide\KoideShader\PlayerStencil.shader" />
+     <None Include="Assets\Koide\KoideShader\WallStencil.shader" />
      <None Include="Assets\Resources\csv\stage_1.txt" />
      <None Include="Assets\Resources\StageData\stageNo_1.txt" />
  <Reference Include="UnityEngine.CoreModule">
