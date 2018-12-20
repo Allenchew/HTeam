@@ -246,7 +246,9 @@
     <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
+    <Compile Include="Assets\t_nakano\nakano_Scripte\MapManagerControl.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MoveDestination.cs" />
+    <Compile Include="Assets\t_nakano\nakano_Scripte\NewBehaviourScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Koide\KoideShader\PlayerStencil.shader" />
