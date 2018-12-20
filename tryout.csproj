@@ -232,7 +232,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Koide\PlayerController.cs" />
+    <Compile Include="Assets\Matsuda\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Matsuda\Scripts\Exit.cs" />
+    <Compile Include="Assets\Script\EnemyMnger.cs" />
+    <Compile Include="Assets\Script\GameMnger.cs" />
+    <Compile Include="Assets\Script\SoundMnger.cs" />
+    <Compile Include="Assets\Script\Title.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapControl.cs" />
     <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
