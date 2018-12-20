@@ -47,7 +47,6 @@ public class GameMnger : MonoBehaviour {
     void Update () {
 
 	}
-
     IEnumerator I_timer(int InputTime)
     {
         for(int i = InputTime; i > 0; i--)
