@@ -69,7 +69,7 @@ public class GameMnger : MonoBehaviour {
             GameState.IntervelEnd = true;
             StartCoroutine(I_timer(PhaseTime));
             EnemyMnger.EnemyIns.GetSpawnEnemy(EnemyToSpawn);
-            // EnemyManager.EnemyIns.GetSpawnEnemy(60, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            
         }
     }
     void _gameOver()

@@ -17,6 +17,9 @@ public class CameraController : MonoBehaviour
     private Vector3 homePos;        //拠点のポジション記憶用
     private float offsetY = 10.0f;
 
+    //by Allen
+    bool titleMode = true;
+
     void Start ()
     {
         ///---初期化---///
