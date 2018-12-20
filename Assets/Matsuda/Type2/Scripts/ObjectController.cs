@@ -9,7 +9,10 @@ public class ObjectController : MonoBehaviour
     GameObject _target = null;
 
     NavMeshAgent _navAgent = null;
-    
+
+    public bool _pathUpdate = false;
+
+
     void Awake()
     {
         _navAgent = GetComponent<NavMeshAgent>();
@@ -23,7 +26,26 @@ public class ObjectController : MonoBehaviour
             _navAgent.destination = _target.transform.position;
         }
     }
-  
+
+
+    void Update()
+    {
+        if (_pathUpdate)
+        {
+            _pathUpdate = false;
+            PathUpdate();
+        }
+    }
+
+    void PathUpdate()
+    {
+        //再計算
+        //_navAgent.ResetPath();
+        //_navAgent.CalculatePath(_target.transform.position, _navAgent.path);
+        //_navAgent.SetPath(_navAgent.path);
+    }
+
+
 
 
 }
