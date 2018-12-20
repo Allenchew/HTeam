@@ -17,7 +17,7 @@ public enum MoveState
 public class PlayerController : MonoBehaviour
 {
     [Header("アニメション関連")]
-    private Animator animator;
+    public Animator animator;
     private AnimatorStateInfo stateInfo;
 
     [Header("プレイヤー移動関連")]
@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         //---初期化---//
         charaCon = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         //rayDistance = (transform.localScale.z / 2) + 0.5f;
         MoveUpdate();
@@ -68,6 +69,8 @@ public class PlayerController : MonoBehaviour
 	
 	void Update ()
     {
+        Input.GetButtonDown("Wall");
+
         MoveUpdate();
 
         MoveInput();
@@ -97,26 +100,37 @@ public class PlayerController : MonoBehaviour
             //入力が最大の時
             if (velocity.magnitude >= 0.5f)
             {
-                MoveDirection(velocity);                            //向きを決定する
-                transform.LookAt(transform.position + move[index]); //向き変更
+                if (MoveDirection(velocity))//向きを決定する
+                {
+                    transform.LookAt(transform.position + move[index]); //向き変更
+                    animator.SetFloat("Speed", velocity.magnitude);
+                }
+                else
+                {
+                    index = 0;
+                    animator.SetFloat("Speed", 0.0f);
+                }
+
             }
             else
             {
                 index = 0;
+                animator.SetFloat("Speed",0.0f);
             }
             charaCon.Move(move[index] * moveSpeed * Time.deltaTime);    //移動
             velocity.y += Physics.gravity.y * Time.deltaTime;           //下に重力を掛ける
 
             //壁を倒す処理
-            if (Input.GetKeyDown(KeyCode.J) && wallFlg)
+            if (Input.GetButtonDown("Wall") && wallFlg)
             {
+                animator.SetFloat("Speed", 0.0f);
                 moveState = MoveState.WallAction;          //ステータス変更
                 
                 transform.LookAt(wall.transform.position); //壁の方を向く
 
                 wall.GetComponent<Rigidbody>().isKinematic = false; //重力オン
                 wall.GetComponent<WallController>().Topple();       //倒す関数呼びだし
-
+                wall.GetComponent<WallController>().flg = FlgState.END;
                 //初期化//
                 wall = null; 
                 wallFlg = false;
@@ -127,15 +141,17 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// プレイヤーの方向決定
     /// </summary>
-    public void MoveDirection(Vector3 dir)
+    public bool MoveDirection(Vector3 dir)
     {
         for(int i = 0; i < vec.Length; i++)
         {
             if (dir == vec[i])
             {            
                 index = i;
+                return true;
             }
         }
+        return false;
     }
 
     /// <summary>
@@ -170,15 +186,18 @@ public class PlayerController : MonoBehaviour
         {
             wall = col.gameObject.transform.root.gameObject;
             wallFlg = true;
+            wall.GetComponent<WallController>().flg = FlgState.ALPHA_ONE;
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && moveState != MoveState.WallAction)
         {
+            wall.GetComponent<WallController>().AlphaTimer = 0.0f;
+            wall.GetComponent<WallController>().flg = FlgState.ALPHA_ZERO; ;
             wall = null;
-            wallFlg = false;
+            wallFlg = false;          
         }
     }
 }
