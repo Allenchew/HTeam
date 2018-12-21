@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapManagerControl : MonoBehaviour {
 
 	public int corner = 6;
-	public float distance = 1.5f; //壁を立てる距離
+	public float distance = 1f; //壁を立てる距離
     public GameObject wall;
 
     int childCount = 0;
@@ -29,8 +29,17 @@ public class MapManagerControl : MonoBehaviour {
 		}
 		return false;
 	}
+    public void ReCreate(int stageNo)
+    {
+        Debug.Log("destroy");
+        foreach(Transform wall in transform)
+        {
+            Destroy(wall.gameObject);
+        }
+        CreateMap(stageNo);
+    }
 
-	public void CreateMap(int stageNo=1){
+	public void CreateMap(int stageNo){
 		Debug.Log (childCount);
 		string stageData = "StageData/stageNo_" + (stageNo).ToString ();
 

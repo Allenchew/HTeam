@@ -37,6 +37,10 @@ public class WallController : MonoBehaviour
     private float reachingSpeed = 1.0f;
     private float reachingHeight = 3.0f;
 
+    //by Allen
+     bool WallFalling = false;
+    public GameObject blood;
+
     public FlgState flg
     {
         set { flgState = value; }
@@ -56,7 +60,7 @@ public class WallController : MonoBehaviour
         playerCon = GameObject.FindObjectOfType<PlayerController>();
         icon = transform.Find("Canvas/IconImage").gameObject.GetComponent<Image>();
 
-        rightVec = transform.right;         //倒れる方向
+        rightVec = -transform.forward;         //倒れる方向
         torque = rightVec * torqueEorce;    //加える力
     }
 
@@ -124,6 +128,7 @@ public class WallController : MonoBehaviour
     /// </summary>
     public void Topple()
     {
+        WallFalling = true;
         rig.AddTorque(torque, ForceMode.Force); //押す
 
         StartCoroutine(DestroyWall());
@@ -136,8 +141,19 @@ public class WallController : MonoBehaviour
     IEnumerator DestroyWall()
     {
         yield return new WaitForSeconds(1.5f);
-
+        SoundMnger.SoundIns.playSe(SoundMnger.SoundIns.SE[2]);
         Destroy(gameObject);                //壁を消す
         playerCon.State = MoveState.Move;   //ステータスを戻す
+    }
+    void OnCollisionEnter(Collision collide)
+    {
+        if (WallFalling && collide.gameObject.tag == "Enemy")
+        {
+            collide.transform.GetComponent<Animator>().SetBool("Die", true);
+            var tempBlood = GameObject.Instantiate(blood);
+            tempBlood.transform.position = new Vector3(collide.gameObject.transform.position.x, 0.15f, collide.gameObject.transform.position.z);
+            Debug.Log(new Vector3(collide.gameObject.transform.position.x, 0.15f, collide.gameObject.transform.position.z));
+            GetComponent<Collider>().isTrigger = true;
+        }
     }
 }

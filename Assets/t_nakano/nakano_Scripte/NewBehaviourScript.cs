@@ -9,7 +9,7 @@ public class NewBehaviourScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		gameobject.GetComponent<MapManagerControl>().CreateMap();
+		
 	}
 	
 	// Update is called once per frame

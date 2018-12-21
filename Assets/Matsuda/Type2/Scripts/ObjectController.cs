@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -11,7 +13,10 @@ public class ObjectController : MonoBehaviour
     GameObject _target = null;
 
     NavMeshAgent _navAgent = null;
-    
+    bool Running = false;
+
+    public AudioSource ZombiePlayer;
+    public AudioClip[] ZombieClip;
     void Awake()
     {
         _navAgent = GetComponent<NavMeshAgent>();
@@ -19,11 +24,13 @@ public class ObjectController : MonoBehaviour
 
     void Start()
     {
+        ZombiePlayer = GetComponent<AudioSource>();
         _target = GameObject.FindGameObjectWithTag("Tower");
         if (_target != null)
         {
             _navAgent.destination = _target.transform.position;
         }
+        StartCoroutine(Yawn());
     }
 
     void Update()
@@ -32,10 +39,16 @@ public class ObjectController : MonoBehaviour
         NaviUpdate();
         _mapManager.******* = false;
         }*/
+        if (GetComponent<Animator>().GetBool("Die") && !Running){
+            Running = true;
+            GetComponent<NavMeshAgent>().isStopped = true;
+            StartCoroutine(Dying());
+        }
     }
 
     void NaviUpdate()
     {
+        
         // 次の位置への方向を求める
         var dir = _navAgent.nextPosition - transform.position;
 
@@ -52,6 +65,46 @@ public class ObjectController : MonoBehaviour
 
         // 位置の更新
         transform.position = _navAgent.nextPosition;
+       
     }
+    IEnumerator Dying()
+    {
+        int index = Random.Range(1, 2);
+        ZombiePlayer.clip = ZombieClip[index];
+        ZombiePlayer.Play();
+        EnemyMnger.EnemyIns.EnemyCount--;
+            yield return new WaitForSeconds(2.0f);
+            Destroy(gameObject);
+    }
+    IEnumerator Yawn()
+    {
+        while (!Running)
+        {
+            if (!ZombiePlayer.isPlaying)
+            {
+                int temp = Random.Range(0, 1);
+                if (temp == 0)
+                {
+                    ZombiePlayer.clip = ZombieClip[0];
+                    ZombiePlayer.Play();
+                }
+                yield return new WaitForSeconds(22f);
+            }
 
+        }
+    }
+    void OnCollisionEnter(Collision Collide)
+    {
+        if(Collide.gameObject.tag == "Player")
+        {
+            GetComponent<Collider>().isTrigger = true;
+        }
+    }
+    void OnCollisionExit(Collision Collide)
+    {
+        if (Collide.gameObject.tag == "Player")
+        {
+            GetComponent<Collider>().isTrigger = false;
+        }
+    }
 }

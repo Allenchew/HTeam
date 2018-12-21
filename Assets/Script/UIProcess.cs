@@ -109,12 +109,13 @@ public class UIProcess : MonoBehaviour {
             if (i == 19) temp = 19;
             else temp = (float)i / 19;
             Target.color = Color.Lerp(Start, End, temp);
-            //GameState[0].color = Color.Lerp(Color.clear, Color.white, temp);
             yield return new WaitForSeconds(0.05f);
         }
     }
     void Init()
     {
         StartCoroutine(FadeInOut(TitlePic, Color.white, Color.clear));
+        HpContain.SetActive(true);
     }
+    
 }

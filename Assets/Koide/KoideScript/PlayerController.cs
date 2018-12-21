@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
     private MoveState moveState;
     public Camera mainCamera;
 
+    private bool getStun = false;
+    private bool Recovered = true;
+    public Rigidbody rb;
+    public AudioClip[] GirlVoice;
+    public AudioSource GirlPlayer;
 ///------プロパティ-------///
     /// <summary>
     /// ステート受け渡し用
@@ -58,7 +63,9 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
+        rb = GetComponents<Rigidbody>()[0];
         //---初期化---//
+        GirlPlayer = GetComponent<AudioSource>();
         charaCon = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
@@ -69,11 +76,14 @@ public class PlayerController : MonoBehaviour
 	
 	void Update ()
     {
-        Input.GetButtonDown("Wall");
+        if (!getStun)
+        {
+            Input.GetButtonDown("Wall");
 
-        MoveUpdate();
+            MoveUpdate();
 
-        MoveInput();
+            MoveInput();
+        }
     }
 
     /// <summary>
@@ -100,7 +110,8 @@ public class PlayerController : MonoBehaviour
             //入力が最大の時
             if (velocity.magnitude >= 0.5f)
             {
-                if (MoveDirection(velocity))//向きを決定する
+                Vector3 Rounding = new Vector3(Mathf.Round(velocity.x), Mathf.Round(velocity.y), Mathf.Round(velocity.z));
+                if (MoveDirection(Rounding))//向きを決定する
                 {
                     transform.LookAt(transform.position + move[index]); //向き変更
                     animator.SetFloat("Speed", velocity.magnitude);
@@ -123,10 +134,13 @@ public class PlayerController : MonoBehaviour
             //壁を倒す処理
             if (Input.GetButtonDown("Wall") && wallFlg)
             {
+                int TempIndex = Random.Range(0, 2);
+                GirlPlayer.clip = GirlVoice[TempIndex];
+                GirlPlayer.Play();
                 animator.SetFloat("Speed", 0.0f);
                 moveState = MoveState.WallAction;          //ステータス変更
                 
-                transform.LookAt(wall.transform.position); //壁の方を向く
+                transform.LookAt(new Vector3(wall.transform.position.x,1, wall.transform.position.z)); //壁の方を向く
 
                 wall.GetComponent<Rigidbody>().isKinematic = false; //重力オン
                 wall.GetComponent<WallController>().Topple();       //倒す関数呼びだし
@@ -180,11 +194,18 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("entered");
+        
+    }
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        
+        if(col.gameObject.tag == "Wall")
         {
-            wall = col.gameObject.transform.root.gameObject;
+            
+            wall = col.gameObject.transform.parent.gameObject;
             wallFlg = true;
             wall.GetComponent<WallController>().flg = FlgState.ALPHA_ONE;
         }
@@ -192,12 +213,45 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Player" && moveState != MoveState.WallAction)
+        if (col.gameObject.tag == "Wall" && moveState != MoveState.WallAction)
         {
             wall.GetComponent<WallController>().AlphaTimer = 0.0f;
             wall.GetComponent<WallController>().flg = FlgState.ALPHA_ZERO; ;
             wall = null;
             wallFlg = false;          
         }
+        if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("entered 1");
+            if (Recovered && !getStun)
+            {
+                getStun = true;
+                animator.StopPlayback();
+                StartCoroutine(RecoverFrom());
+            }
+
+        }
+    }
+    IEnumerator RecoverFrom()
+    {
+        Recovered = false;
+        bool temp = false;
+
+       /* rb.useGravity = true;
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddForce(Vector3.up*200);
+        while (transform.position.y > 1.24f)
+        {
+            yield return null;
+        }
+        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezePositionY;*/
+        getStun = false;
+        for (int i = 0; i < 6;i++) {
+            transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = temp;
+            temp = !temp;
+            yield return new WaitForSeconds(0.5f);
+        }
+        Recovered = true;
     }
 }

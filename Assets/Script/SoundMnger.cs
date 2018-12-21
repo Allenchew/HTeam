@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundMnger : MonoBehaviour {
+    public AudioClip[] Bgm;
+    public AudioClip[] SE;
+    
 
     public AudioSource SEPlayer;
     public AudioSource BgmPlayer;
@@ -21,7 +24,9 @@ public class SoundMnger : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 	void Start () {
-		
+        BgmPlayer = GetComponent<AudioSource>();
+        SEPlayer = transform.GetChild(0).GetComponent<AudioSource>();
+            PlayBgm(Bgm[0]);
 	}
 	
 	void Update () {

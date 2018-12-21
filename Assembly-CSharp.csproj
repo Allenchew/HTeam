@@ -51,16 +51,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
      <Compile Include="Assets\Koide\KoideScript\CameraController.cs" />
      <Compile Include="Assets\Koide\KoideScript\PlayerController.cs" />
      <Compile Include="Assets\Koide\KoideScript\WallController.cs" />
      <Compile Include="Assets\Matsuda\Type1\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Matsuda\Type1\Scripts\Exit.cs" />
      <Compile Include="Assets\Matsuda\Type2\Scripts\ObjectController.cs" />
+     <Compile Include="Assets\Script\BloodShow.cs" />
      <Compile Include="Assets\Script\EnemyMnger.cs" />
      <Compile Include="Assets\Script\GameMnger.cs" />
      <Compile Include="Assets\Script\SoundMnger.cs" />
      <Compile Include="Assets\Script\Title.cs" />
+     <Compile Include="Assets\Script\TowerDetect.cs" />
      <Compile Include="Assets\Script\UIProcess.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\CsvReader.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\MapCreate.cs" />
@@ -68,8 +74,10 @@
      <Compile Include="Assets\t_nakano\nakano_Scripte\MoveDestination.cs" />
      <Compile Include="Assets\t_nakano\nakano_Scripte\NewBehaviourScript.cs" />
      <None Include="Assets\Koide\KoideShader\PlayerStencil.shader" />
+     <None Include="Assets\Resources\StageData\stageNo_2.txt" />
      <None Include="Assets\Koide\KoideShader\WallStencil.shader" />
      <None Include="Assets\Resources\csv\stage_1.txt" />
+     <None Include="Assets\Resources\StageData\stageNo_3.txt" />
      <None Include="Assets\Resources\StageData\stageNo_1.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
